@@ -12,7 +12,11 @@ Route::get('/home', function(){
 
 
 Route::get('/siswa', function(){
-    return view('siswa.index', ['nama' => 'irul']); //mengirim data ke view dengan array asosiatif
+    $data_siswa = [
+        ['nama'=>'irul','nilai'=>80,'id'=>'001'],
+        ['nama'=>'anwar','nilai'=>50,'id'=>'002']
+    ];
+    return view('siswa.index', ['data_siswa' => $data_siswa]); //mengirim data ke view dengan array asosiatif
 });
 // Route::get('/siswa', function(){
 //     $nama='irul';

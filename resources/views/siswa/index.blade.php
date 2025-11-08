@@ -8,6 +8,16 @@
 </head>
 <body>
     <h1>selamat datang di halaman siswa</h1>
-    nama saya <b>{{ $nama }}</b>
+    <u>daftar siswa</u><br>
+
+
+
+    @foreach ($data_siswa as $data)
+        <li>{{ $data['nama'] }} - {{ $data['nilai'] }} - {{ $data['id'] }}</li>
+    @endforeach
+
+
+
+
 </body>
 </html>
