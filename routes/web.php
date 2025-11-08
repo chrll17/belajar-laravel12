@@ -21,3 +21,7 @@ Route::get('/siswa', function(){
 // Route::get('/siswa', function(){
 //     return view('siswa.index')->with('nama','irul'); //mengirim data ke view dengan WITH
 // });
+
+Route::get('/siswa/{id}', function($id){
+    return view('siswa.id', ['id' => $id]); //mengirim data dari url ke view 
+});
