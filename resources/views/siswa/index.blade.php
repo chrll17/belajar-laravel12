@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>selamat datang di halaman siswa</h1>
+    nama saya <b>{{ $nama }}</b>
 </body>
 </html>

@@ -12,5 +12,12 @@ Route::get('/home', function(){
 
 
 Route::get('/siswa', function(){
-    return view('siswa.index');
+    return view('siswa.index', ['nama' => 'irul']); //mengirim data ke view dengan array asosiatif
 });
+// Route::get('/siswa', function(){
+//     $nama='irul';
+//     return view('siswa.index', compact('nama')); //mengirim data ke view dengan COMPACT
+// });
+// Route::get('/siswa', function(){
+//     return view('siswa.index')->with('nama','irul'); //mengirim data ke view dengan WITH
+// });
