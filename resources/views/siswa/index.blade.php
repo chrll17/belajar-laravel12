@@ -8,6 +8,12 @@
 
 
     @foreach ($data_siswa as $data)
-        <li>{{ $data['nama'] }} - {{ $data['nilai'] }} - {{ $data['id'] }}</li>
+        <li>
+            <a href="/siswa/{{ $data['id'] }}">view detail</a>
+             - {{ $data['nama'] }}
+             - {{ $data['tgl_lahir'] }}
+             - {{ $data['jurusan'] }}
+             - {{ $data['nilai'] }}
+        </li>
     @endforeach
 </x-layout>
