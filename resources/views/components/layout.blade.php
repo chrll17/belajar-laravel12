@@ -8,10 +8,16 @@
 </head>
 <body>
     <nav>
-        <a href="/home">home</a>
-        <a href="/siswa">siswa</a>
-        <a href="/siswa/{id}">id</a>
+        <x-nav-link href='/home'>
+            home
+        </x-nav-link>
+        <x-nav-link href='/siswa'>
+            siswa
+        </x-nav-link>
+        <x-nav-link href='/siswa/{id}'>
+            id
+        </x-nav-link>
     </nav>
-    {{ $slot }} {{-- default slot, cara aksesnya langsung isi dalam x-layout --}}
+    {{ $slot }} {{-- default slot, cara aksesnya langsung isi dalam x-[nama file] --}}
 </body>
 </html>
