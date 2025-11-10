@@ -69,10 +69,10 @@
     </header> --}}
 
     <nav>
-        <x-nav-link href='/home'>
+        <x-nav-link href="{{ route('home') }}"> {{-- route('home') = menangkap penamaan route --}}
             home
         </x-nav-link>
-        <x-nav-link href='/siswa'>
+        <x-nav-link href="{{ route('siswa.index') }}"> {{-- menangkap penamaan route --}}
             siswa
         </x-nav-link>
         <x-nav-link href='/siswa/{id}'>

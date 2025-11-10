@@ -9,7 +9,9 @@
 
     @foreach ($data_siswa as $data)
         <li>
-            <a href="/siswa/{{ $data['id'] }}">view detail</a>
+            <a href="{{ route('siswa.show', $data['id']) }}"> {{-- menangkap penamaan route --}}
+                view detail
+            </a>
              - {{ $data['nama'] }}
              - {{ $data['tgl_lahir'] }}
              - {{ $data['jurusan'] }}

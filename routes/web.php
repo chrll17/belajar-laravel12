@@ -9,11 +9,11 @@ Route::get('/', function () {
 });
 Route::get('/home', function(){
     return view('home');
-});
+})->name('home'); // name('home') = kode untuk memberi nama route
 
 
 
-Route::get('/siswa', [siswaController::class, 'index']);
+Route::get('/siswa', [siswaController::class, 'index'])->name('siswa.index'); //kode penamaan route 'siswa.index' maksudnya controller siswa function index
 // Route::get('/siswa', function(){
 //     $nama='irul';
 //     return view('siswa.index', compact('nama')); //mengirim data ke view dengan COMPACT
@@ -22,4 +22,4 @@ Route::get('/siswa', [siswaController::class, 'index']);
 //     return view('siswa.index')->with('nama','irul'); //mengirim data ke view dengan WITH
 // });
 
-Route::get('/siswa/{id}', [siswaController::class, 'show']);
+Route::get('/siswa/{id}', [siswaController::class, 'show'])->name('siswa.show'); //kode penamaan route 'siswa.show' maksudnya controller siswa function show
