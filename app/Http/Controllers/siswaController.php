@@ -19,7 +19,7 @@ class siswaController extends Controller
 
         // $data_siswa=Siswa::all(); //mengambil semua data dari model (model mengambil data dari database)
 
-        $data_siswa=Siswa::orderby('nilai','desc')->get(); //mengambil data dari model (model mengambil data dari database) dari urutan nilai terbesar
+        $data_siswa=Siswa::orderby('nilai','desc')->paginate(10); //mengambil data dari model (model mengambil data dari database) dari urutan nilai terbesar ||| 'paginate' untuk pagination 
 
         return view('siswa.index', ['data_siswa' => $data_siswa]); //mengirim data ke view dengan array asosiatif
     }

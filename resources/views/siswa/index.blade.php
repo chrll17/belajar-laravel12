@@ -16,4 +16,6 @@
              - {{ $data['nilai'] }}
         </li>
     @endforeach
+
+    {{ $data_siswa->links() }} {{-- untuk mengakses pagination --}}
 </x-layout>
