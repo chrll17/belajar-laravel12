@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->string('jurusan');
             $table->integer('nilai');
+            $table->foreignId('mentor_id')->constrained('mentors')->onDelete('cascade'); //membuat kolom mentor_id dimana mentor_id adalah foreign_key yg mengacu pada kolom id di tabel mentors, jika mentor dihapus maka siswa yang terhubung ikut dihapus
             $table->timestamps();
         });
     }

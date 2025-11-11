@@ -7,12 +7,14 @@
             <th>tgl lahir</th>
             <th>jurusan</th>
             <th>nilai</th>
+            <th>mentor siswa</th>
         </tr>
         <tr>
             <td>{{ $siswa['nama'] }}</td>
             <td>{{ $siswa['tgl_lahir'] }}</td>
             <td>{{ $siswa['jurusan'] }}</td>
             <td>{{ $siswa['nilai'] }}</td>
+            <td>{{ $siswa->mentor->nama }}</td>
         </tr>
     </table>
 </x-layout>

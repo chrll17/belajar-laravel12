@@ -24,7 +24,11 @@ class DatabaseSeeder extends Seeder
 
         // kode untuk menjalankan semua seeder yang kita punya
         $this->call([
+
+            //mentorseeder harus berada diatas karena database siswa bergantung pada database siswa
+            MentorSeeder::class,
             SiswaSeeder::class
+            
         ]);
     }
 }
