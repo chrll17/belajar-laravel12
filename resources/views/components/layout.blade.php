@@ -75,6 +75,9 @@
         <x-nav-link href="{{ route('siswa.index') }}"> {{-- menangkap penamaan route --}}
             siswa
         </x-nav-link>
+        <x-nav-link href="{{ route('siswa.create') }}"> {{-- menangkap penamaan route --}}
+            create
+        </x-nav-link>
         <x-nav-link href='/siswa/{id}'>
             id
         </x-nav-link>

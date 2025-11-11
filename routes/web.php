@@ -22,4 +22,6 @@ Route::get('/siswa', [siswaController::class, 'index'])->name('siswa.index'); //
 //     return view('siswa.index')->with('nama','irul'); //mengirim data ke view dengan WITH
 // });
 
+Route::get('/siswa/create', [siswaController::class, 'create'])->name('siswa.create');
+
 Route::get('/siswa/{id}', [siswaController::class, 'show'])->name('siswa.show'); //kode penamaan route 'siswa.show' maksudnya controller siswa function show
