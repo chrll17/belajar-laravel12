@@ -45,7 +45,7 @@ class siswaController extends Controller
      */
     public function show(string $id)
     {
-        $siswa=Siswa::findorfail($id); //menangkap data id yg dikirim dari siswa.index
+        $siswa=Siswa::with('mentor')->findorfail($id); //with('mentor') = satu kali query pada siswa.id, findorfail($id) = menangkap data id yg dikirim dari siswa.index
         return view('siswa.id', ['siswa' => $siswa]); //mengirim data ke view
     }
 

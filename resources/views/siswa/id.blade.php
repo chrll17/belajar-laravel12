@@ -14,7 +14,7 @@
             <td>{{ $siswa['tgl_lahir'] }}</td>
             <td>{{ $siswa['jurusan'] }}</td>
             <td>{{ $siswa['nilai'] }}</td>
-            <td>{{ $siswa->mentor->nama }}</td>
+            <td>{{ $siswa->mentor->nama }}</td> {{-- Mengambil data dari relasi model Mentor yang dimiliki siswa --}}
         </tr>
     </table>
 </x-layout>
