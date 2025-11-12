@@ -9,7 +9,7 @@ class Siswa extends Model
 {
     use HasFactory;
     protected $table='siswa';
-    protected $fillable =['nama','tgl_lahir','jurusan','nilai'];
+    protected $fillable =['nama','tgl_lahir','jurusan','nilai','mentor_id'];
 
     public function Mentor(){
         return $this->belongsTo(Mentor::class); //setiap siswa dimiliki oleh satu mentor

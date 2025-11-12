@@ -1,9 +1,12 @@
 <x-layout>
     <x-slot:title>create</x-slot:title>
     <h1>selamat datang di halaman create</h1>
-    <form action="" method="POST">
+    <form action="{{ route('siswa.store') }}" method="POST">
         @csrf
         <table border="0" cellspacing='0' cellpadding='5'>
+
+            {{-- name form inputnya harus sama dengan name tabel database --}}
+
             <tr>
                 <td>nama</td>
                 <td>: <input type="text" name="nama" id=""></td>
@@ -22,7 +25,7 @@
             </tr>
             <tr>
                 <td>mentor</td>
-                <td>: <select name="mentor" id="">
+                <td>: <select name="mentor_id" id="">
                     <option value="">pilih mentor</option>
                     @foreach ($mentors as $mentor)
                         <option value="{{ $mentor['id'] }}">{{ $mentor['nama'] }}</option>
