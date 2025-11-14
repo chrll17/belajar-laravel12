@@ -7,6 +7,13 @@
     <title>{{ $title }}</title> {{-- lebih dari 1 slot, cara aksesnya x-slot:[nama slot] --}}
 </head>
 <body>
+    @if (session('sukses'))
+        <div>
+            <p>
+                {{ session('sukses') }}
+            </p>
+        </div>
+    @endif
 
     {{-- <header class="bg-white">
         <div class="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">

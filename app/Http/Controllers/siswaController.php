@@ -54,7 +54,7 @@ class siswaController extends Controller
             'nilai'=>$validated['nilai'],
             'mentor_id'=>$validated['mentor_id'],
         ]);
-        return redirect()->route('siswa.index');
+        return redirect()->route('siswa.index')->with('sukses','data siswa berhasil dibuat'); //with() = flash message laravel
     }
 
     /**
@@ -90,6 +90,6 @@ class siswaController extends Controller
      $siswa=Siswa::findorfail($id); //menangkap data id yg dikirim dari siswa.id
      $siswa->delete();
      
-     return redirect()->route('siswa.index');
+     return redirect()->route('siswa.index')->with('sukses','data siswa berhasil dihapus'); //with() = flash message laravel
     }
 }
