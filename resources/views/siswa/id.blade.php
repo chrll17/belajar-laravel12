@@ -17,4 +17,9 @@
             <td>{{ $siswa->mentor->nama }}</td> {{-- Mengambil data dari relasi model Mentor yang dimiliki siswa --}}
         </tr>
     </table>
+    <form action="{{ route('siswa.destroy', $siswa['id']) }}" method="post">
+        @csrf
+        @method('delete') {{-- untuk merubah method post menjadi delete --}}
+        <button type="submit">delete</button>
+    </form>
 </x-layout>

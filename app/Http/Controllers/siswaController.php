@@ -87,6 +87,9 @@ class siswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+     $siswa=Siswa::findorfail($id); //menangkap data id yg dikirim dari siswa.id
+     $siswa->delete();
+     
+     return redirect()->route('siswa.index');
     }
 }
