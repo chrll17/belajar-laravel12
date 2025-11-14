@@ -39,12 +39,20 @@ class siswaController extends Controller
      */
     public function store(Request $request)
     {
+        $validated=$request->validate([
+            'nama'=>'required|string|min:3',
+            'tgl_lahir'=>'required|date',
+            'jurusan'=>'required|string|min:3',
+            'nilai'=>'required|numeric|min:0|max:100',
+            'mentor_id'=>'required|exists:mentors,id',
+        ]);
+
         siswa::create([
-            'nama'=>$request['nama'],
-            'tgl_lahir'=>$request['tgl_lahir'],
-            'jurusan'=>$request['jurusan'],
-            'nilai'=>$request['nilai'],
-            'mentor_id'=>$request['mentor_id'],
+            'nama'=>$validated['nama'],
+            'tgl_lahir'=>$validated['tgl_lahir'],
+            'jurusan'=>$validated['jurusan'],
+            'nilai'=>$validated['nilai'],
+            'mentor_id'=>$validated['mentor_id'],
         ]);
         return redirect()->route('siswa.index');
     }
