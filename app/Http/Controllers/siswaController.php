@@ -60,9 +60,9 @@ class siswaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Siswa $siswa) 
     {
-        $siswa=Siswa::with('mentor')->findorfail($id); //with('mentor') = satu kali query pada siswa.id, findorfail($id) = menangkap data id yg dikirim dari siswa.index
+        $siswa->load('mentor');
         return view('siswa.id', ['siswa' => $siswa]); //mengirim data ke view
     }
 
@@ -85,9 +85,8 @@ class siswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Siswa $siswa)
     {
-     $siswa=Siswa::findorfail($id); //menangkap data id yg dikirim dari siswa.id
      $siswa->delete();
      
      return redirect()->route('siswa.index')->with('sukses','data siswa berhasil dihapus'); //with() = flash message laravel

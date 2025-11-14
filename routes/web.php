@@ -26,6 +26,6 @@ Route::post('/siswa', [siswaController::class, 'store'])->name('siswa.store');
 
 Route::get('/siswa/create', [siswaController::class, 'create'])->name('siswa.create');
 
-Route::get('/siswa/{id}', [siswaController::class, 'show'])->name('siswa.show'); //kode penamaan route 'siswa.show' maksudnya controller siswa function show
+Route::get('/siswa/{siswa}', [siswaController::class, 'show'])->name('siswa.show'); //kode penamaan route 'siswa.show' maksudnya controller siswa function show
 
-Route::delete('/siswa/{id}', [siswaController::class, 'destroy'])->name('siswa.destroy'); //kode penamaan route 'siswa.destroy' maksudnya controller siswa function destroy
+Route::delete('/siswa/{siswa}', [siswaController::class, 'destroy'])->name('siswa.destroy'); //kode penamaan route 'siswa.destroy' maksudnya controller siswa function destroy
