@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\authController;
 use App\Http\Controllers\siswaController;
 use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,11 @@ Route::get('/siswa/create', [siswaController::class, 'create'])->name('siswa.cre
 Route::get('/siswa/{siswa}', [siswaController::class, 'show'])->name('siswa.show'); //kode penamaan route 'siswa.show' maksudnya controller siswa function show
 
 Route::delete('/siswa/{siswa}', [siswaController::class, 'destroy'])->name('siswa.destroy'); //kode penamaan route 'siswa.destroy' maksudnya controller siswa function destroy
+
+route::get('/auth/login', [authController::class, 'showLogin'])->name('auth.showLogin'); //kode penamaan route 'auth.showLogin' maksudnya controller auth function showLogin
+
+route::get('/auth/register', [authController::class, 'showRegister'])->name('auth.showRegister'); //kode penamaan route 'auth.showRegister' maksudnya controller auth function showRegister
+
+route::post('/auth/login', [authController::class, 'login'])->name('auth.login'); //kode penamaan route 'auth.login' maksudnya controller auth function login
+
+route::post('/auth/register', [authController::class, 'register'])->name('auth.register'); //kode penamaan route 'auth.register' maksudnya controller auth function register
