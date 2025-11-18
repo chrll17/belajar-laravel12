@@ -87,7 +87,9 @@
         </x-nav-link>
         <x-nav-link href='/siswa/{id}'>
             id
-        </x-nav-link>
+        </x-nav-link><br>
+
+        @guest {{-- blade untuk menampilkan yg tidak ter-autentikasi --}}
         <form action="{{ route('auth.login') }}" method="get">
             @csrf
             <button type="submit">login</button>
@@ -96,10 +98,17 @@
             @csrf
             <button type="submit">register</button>
         </form>
-        <form action="{{ route('auth.logout') }}" method="post">
-            @csrf
-            <button type="submit">logout</button>
-        </form>
+        @endguest
+        
+        @auth {{-- blade untuk menampilkan yg ter-autentikasi --}} 
+            <span>
+                {{ Auth::user()->name }} | {{ Auth::user()->email }}
+            </span>
+            <form action="{{ route('auth.logout') }}" method="post">
+                @csrf
+                <button type="submit">logout</button>
+            </form>
+        @endauth
     </nav>
     {{ $slot }} {{-- default slot, cara aksesnya langsung isi dalam x-[nama file] --}}
 </body>
