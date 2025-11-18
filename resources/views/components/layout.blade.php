@@ -104,7 +104,7 @@
             <span>
                 {{ Auth::user()->name }} | {{ Auth::user()->email }}
             </span>
-            <form action="{{ route('auth.logout') }}" method="post">
+            <form action="{{ route('logout') }}" method="post">
                 @csrf
                 <button type="submit">logout</button>
             </form>
