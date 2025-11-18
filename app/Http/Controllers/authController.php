@@ -14,8 +14,19 @@ class authController extends Controller
     public function showRegister(){
         return view('auth.register');
     }
-    public function login(){
-        
+    public function login(Request $request){
+        $credentials=$request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8',
+        ]);
+
+        if(Auth::attempt($credentials)){ //mencocokkan dengan data di database
+            $request->session()->regenerate(); //memperbarui session 
+            return redirect()->route('siswa.index');
+        }
+        throw ValidationException::withMessages([
+            'email'=>'email atau password salah'
+        ]);
     }
     public function register(Request $request){
         $validated=$request->validate([

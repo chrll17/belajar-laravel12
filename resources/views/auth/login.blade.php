@@ -6,10 +6,16 @@
     <form action="{{ route('auth.login') }}" method="post">
         @csrf
         <label for="email">email :</label>
-        <input type="email" name="email" id="email"><br>
+        <input type="email" name="email" id="email">
+        @error('email')
+            {{ $message }}
+        @enderror<br>
 
         <label for="password">password :</label>
-        <input type="password" name="password" id="password"><br>
+        <input type="password" name="password" id="password">
+        @error('password')
+            {{ $message }}
+        @enderror<br>
 
         <button type="submit">login</button>
     </form>
