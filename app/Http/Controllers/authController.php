@@ -41,4 +41,11 @@ class authController extends Controller
 
         return redirect()->route('siswa.index');
     }
+    public function logout(Request $request){
+        Auth::logout(); //menghapus user dari session
+        $request->session()->invalidate(); //menghancurkan session lama
+        $request->session()->regenerateToken(); //memperbarui token csrf
+
+        return redirect()->route('auth.showLogin');
+    }
 }

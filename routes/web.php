@@ -38,3 +38,5 @@ route::get('/auth/register', [authController::class, 'showRegister'])->name('aut
 route::post('/auth/login', [authController::class, 'login'])->name('auth.login'); //kode penamaan route 'auth.login' maksudnya controller auth function login
 
 route::post('/auth/register', [authController::class, 'register'])->name('auth.register'); //kode penamaan route 'auth.register' maksudnya controller auth function register
+
+route::post('/auth/logout',[authController::class, 'logout'])->name('auth.logout');

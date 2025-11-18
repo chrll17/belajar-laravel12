@@ -88,6 +88,18 @@
         <x-nav-link href='/siswa/{id}'>
             id
         </x-nav-link>
+        <form action="{{ route('auth.login') }}" method="get">
+            @csrf
+            <button type="submit">login</button>
+        </form>
+        <form action="{{ route('auth.register') }}" method="get">
+            @csrf
+            <button type="submit">register</button>
+        </form>
+        <form action="{{ route('auth.logout') }}" method="post">
+            @csrf
+            <button type="submit">logout</button>
+        </form>
     </nav>
     {{ $slot }} {{-- default slot, cara aksesnya langsung isi dalam x-[nama file] --}}
 </body>
