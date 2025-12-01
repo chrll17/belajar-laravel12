@@ -7,45 +7,50 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
-class authController extends Controller
+class AuthController extends Controller
 {
-    public function showLogin(){
-        return view('auth.login');
-    }
     public function showRegister(){
         return view('auth.register');
     }
-    public function login(Request $request){
-        $credentials=$request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8',
-        ]);
-
-        if(Auth::attempt($credentials)){ //mencocokkan dengan data di database
-            $request->session()->regenerate(); //memperbarui session 
-            return redirect()->route('siswa.index');
-        }
-        throw ValidationException::withMessages([
-            'email'=>'email atau password salah'
-        ]);
+    public function showLogin(){
+         return view('auth.login');
     }
+
+
     public function register(Request $request){
         $validated=$request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:8|confirmed',
+            'name'=>'required',
+            'email'=>'required|email|unique:users',
+            'password'=>'required|confirmed'
         ]);
 
-        $user=User::create($validated); //menyimpan ke database
+        $user=User::create($validated);
+        Auth::login($user);
 
-        Auth::login($user); //autentikasi
-
-        return redirect()->route('siswa.index');
+        return redirect()->route('auth.showLogin');
     }
+
+
+
+    public function login(Request $request){
+        $credentials=$request->validate([
+            'email'=>'required|email',
+            'password'=>'required'
+        ]);
+
+        if(auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect()->route('produk.index');
+        }
+        throw ValidationException::withMessages([
+            'email'=>'email/password salah'
+        ]);
+    }
+
     public function logout(Request $request){
-        Auth::logout(); //menghapus user dari session
-        $request->session()->invalidate(); //menghancurkan session lama
-        $request->session()->regenerateToken(); //memperbarui token csrf
+        auth::logout();
+        $request->session()->invalidate(); 
+        $request->session()->regenerateToken(); 
 
         return redirect()->route('auth.showLogin');
     }
